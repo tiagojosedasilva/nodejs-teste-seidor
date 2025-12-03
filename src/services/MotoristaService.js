@@ -8,7 +8,9 @@ class MotoristaService {
 
     buscarPorId(id){
         const motorista = motoristas.find(value => value.id === id);
-        if (!motorista) throw new Error("Motorista nao encontrado!");
+        if (!motorista) {
+            throw new Error("Motorista nao encontrado!");
+        }
          
         return motorista;
     }
@@ -16,13 +18,17 @@ class MotoristaService {
     filtrarMotorista(nome){
         const filtro = motoristas;
 
-        if(nome) filtro = filtro.filter(value => value.nome.toLowerCase().includes(nome.toLowerCase()));
+        if(nome) {
+            filtro = filtro.filter(value => value.nome.toLowerCase().includes(nome.toLowerCase()));
+        }
 
         return filtro;
     }
     
     criarMotorista(motorista){
-        if(!motorista.nome) throw new Error("Motorista inválido. Tente novamente!");
+        if(!motorista.nome) {
+            throw new Error("Motorista inválido. Tente novamente!");
+        }
 
         const motoristaTemp = {
             id: generateId(),
@@ -36,7 +42,9 @@ class MotoristaService {
     editarMotorista(id, motoristaAtualizado){
         const indice = motoristas.findIndex(value => value.id === id);
         
-        if(indice === -1) throw new Error("Motorista não encontrado!");
+        if(indice === -1) {
+            throw new Error("Motorista não encontrado!");
+        }
 
         motoristas[indice] = motoristaAtualizado;
 
@@ -46,7 +54,9 @@ class MotoristaService {
     deletarMotorista(id){
         const indice = motoristas.findIndex(value => value.id === id);
         
-        if (indice === -1 ) throw new Error("Motorista nao encontrado"); 
+        if (indice === -1 ) {
+            throw new Error("Motorista nao encontrado"); 
+        }
 
         motoristas.splice(indice, 1);
         return "Deletado com sucesso!";

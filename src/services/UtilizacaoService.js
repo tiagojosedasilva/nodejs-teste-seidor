@@ -8,13 +8,18 @@ class UtilizacaoService {
 
     buscarPorId(id){
         const utilizacao = utilizacoes.find(value => value.id === id);
-        if (!utilizacao) throw new Error("Utilizacao nao encontrada!");
+        if (!utilizacao) {
+            throw new Error("Utilizacao nao encontrada!");
+        }
          
         return utilizacao;
     }
     
     criarUtilizacao(utilizacao){
-        if(!utilizacao.nome) throw new Error("Utilizacao inválida. Tente novamente!");
+
+        if(!utilizacao.dataInicial || !utilizacao.dataFinal || !utilizacao.motorista || !utilizacao.carro || motivo) {
+            throw new Error("Utilizacao inválida. Tente novamente!");
+        }
 
         const utilizacaoTemp = {
             id: generateId(),
@@ -28,7 +33,9 @@ class UtilizacaoService {
     editarUtilizacao(id, utilizacaoAtualizada){
         const indice = utilizacoes.findIndex(value => value.id === id);
         
-        if(indice === -1) throw new Error("Utilizacao não encontrada!");
+        if(indice === -1) {
+            throw new Error("Utilizacao não encontrada!");
+        }
 
         utilizacoes[indice] = utilizacaoAtualizada;
 
@@ -38,7 +45,9 @@ class UtilizacaoService {
     deletarUtilizacao(id){
         const indice = utilizacoes.findIndex(value => value.id === id);
         
-        if (indice === -1 ) throw new Error("Utilizacao nao encontrada"); 
+        if (indice === -1) {
+            throw new Error("Utilizacao nao encontrada"); 
+        }
 
         utilizacoes.splice(indice, 1);
         return "Deletado com sucesso!";

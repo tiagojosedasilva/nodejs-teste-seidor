@@ -8,7 +8,9 @@ class CarrosService {
 
     buscarPorId(id){
         const carro = carros.find(value => value.id === id);
-        if (!carro) throw new Error("Carro nao encontrado!");
+        if (!carro) {
+            throw new Error("Carro nao encontrado!");
+        }
          
         return carro;
     }
@@ -24,9 +26,13 @@ class CarrosService {
     }
     
     criarCarro(carro){
-        if(!carro.placa || !carro.cor || !carro.marca) throw new Error("Carro inválido. Tente novamente!");
+        if(!carro.placa || !carro.cor || !carro.marca) {
+            throw new Error("Carro inválido. Tente novamente!");
+        }
         
-        if(!carros.filter(value => value.placa == car.placa)) throw new Error("Carro já cadastrado");
+        if(!carros.filter(value => value.placa == car.placa)) {
+            throw new Error("Carro já cadastrado");
+        }
 
         const carroTemp = {
             id: generateId(),
@@ -42,7 +48,9 @@ class CarrosService {
     editarCarro(id, carroAtualizado){
         const indice = carros.findIndex(value => value.id === id);
         
-        if(indice === -1) throw new Error("Carro não encontrado!");
+        if(indice === -1) {
+            throw new Error("Carro não encontrado!");
+        }
 
         carros[indice] = carroAtualizado;
 
@@ -52,7 +60,9 @@ class CarrosService {
     deletarCarro(id){
         const indice = carros.findIndex(value => value.id === id);
         
-        if (indice === -1 ) throw new Error("Carro nao encontrado"); 
+        if (indice === -1 ) {
+            throw new Error("Carro nao encontrado"); 
+        }
 
         carros.splice(indice, 1);
         return "Deletado com sucesso!";
