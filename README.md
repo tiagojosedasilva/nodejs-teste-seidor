@@ -56,7 +56,7 @@ A API base está em http://localhost:3000/api.
 🚗 Automóveis (/carros)
 
 | Método        | Rota          | Corpo da Requisição (JSON)                                                  | Descrição               |
------------------------------------------------------------------------------------------------------------------------------------------
+|---------------|---------------|-----------------------------------------------------------------------------|-------------------------|
 | GET           | /carros       | N/A                                                                         | Buscar todos os carros  |
 | GET           | /carros/:id   | N/A                                                                         | Buscar um carro por id  |
 | POST          | /carros       | {"placa": "XYZ-0000", "cor": "Preto", "marca": "Ford"}                      | Cadastra um novo carro  |
@@ -66,7 +66,7 @@ A API base está em http://localhost:3000/api.
 🧑‍  Motoristas (/motoristas)
 
 | Método        | Rota              | Corpo da Requisição (JSON)                                   | Descrição                   |
-----------------------------------------------------------------------------------------------------------------------------------
+|---------------|-------------------|--------------------------------------------------------------|-----------------------------|
 | GET           | /motoristas       | N/A                                                          | Buscar todos os motoristas  |
 | GET           | /motoristas/:id   | N/A                                                          | Buscar um motoristas por id |
 | POST          | /motoristas       | {"nome": "Tiago José da Silva"}                              | Cadastra um novo motoristas |
@@ -77,7 +77,7 @@ A API base está em http://localhost:3000/api.
 🚦 Utilizações (/utilizacao)
 
 | Método        | Rota              | Corpo da Requisição (JSON)                                                                                                                                      | Descrição                    |
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|---------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | GET           | /utilizacao       | N/A                                                                                                                                                             | Buscar todos os utilizacao   |
 | GET           | /utilizacao/:id   | N/A                                                                                                                                                             | Buscar um utilizacao por id  |
 | POST          | /utilizacao       | {"idMotorista": "734e784a...", "idCarro": 734e784a...", "motivo": "Visita a...", "dataInicial": "01/01/2025", "dataFinal": "05/01/2025"}                        | Iniciar uma nova utilizacao  |
