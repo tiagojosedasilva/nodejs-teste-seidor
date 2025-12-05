@@ -39,17 +39,6 @@ routes.get("/carros/:id", (req, res) => {
         errorHandler(res, error);
     }
 });
-// Nessa rota, a requisicao deve conter em query params 
-// um objeto com os dados do carro ex: /carros?cor=branco&marca=ford
-routes.get("/carros", (req, res) => {
-    try {
-        const carro = carrosService.filtrarCarros(req.query);
-        res.json(carro);
-    } catch (error) {
-        errorHandler(res, error);
-    }
-});
-
 
 routes.post("/carros", (req, res) => {
     try {
@@ -97,18 +86,6 @@ routes.get("/motoristas/:id", (req, res) => {
         errorHandler(res, error);
     }
 });
-
-// Nessa rota, a requisicao deve conter em query params 
-// um objeto com o nome do motorista ex: /motoristas?nome=joao
-routes.get("/motoristas", (req, res) => {
-    try {
-        const motorista = motoristasService.filtrarMotorista(req.query);
-        res.json(motorista);
-    } catch (error) {
-        errorHandler(res, error);
-    }
-});
-
 
 routes.post("/motoristas", (req, res) => {
     try {
@@ -160,7 +137,7 @@ routes.get("/utilizacao/:id", (req, res) => {
 
 routes.post("/utilizacao", (req, res) => {
     try {
-        const utilizacao = utilizacaoService.criarUtilizacao(req.body);
+        const utilizacao = utilizacaoService.iniciarUtilizacao(req.body);
         res.status(201).json(utilizacao);
     } catch (error) {
         errorHandler(res, error);

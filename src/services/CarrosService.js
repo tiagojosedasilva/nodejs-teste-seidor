@@ -14,23 +14,13 @@ class CarrosService {
          
         return carro;
     }
-
-    // Essa funcao foi criada apenas por constume em filtrar os dados
-    filtrarCarros({cor, marca}){
-        let filtro = carros;
-
-        if (cor) filtro = filtro.filter(value => value.cor === cor);
-        if (marca) filtro = filtro.filter(value => value.marca === marca);
-
-        return filtro;
-    }
     
     criarCarro(carro){
         if(!carro.placa || !carro.cor || !carro.marca) {
             throw new Error("Carro inválido. Tente novamente!");
         }
         
-        if(!carros.filter(value => value.placa == car.placa)) {
+        if(!carros.filter(value => value.placa == carro.placa)) {
             throw new Error("Carro já cadastrado");
         }
 
@@ -59,6 +49,7 @@ class CarrosService {
 
     deletarCarro(id){
         const indice = carros.findIndex(value => value.id === id);
+        console.log({id, indice});
         
         if (indice === -1 ) {
             throw new Error("Carro nao encontrado"); 

@@ -14,16 +14,6 @@ class MotoristaService {
          
         return motorista;
     }
-
-    filtrarMotorista(nome){
-        const filtro = motoristas;
-
-        if(nome) {
-            filtro = filtro.filter(value => value.nome.toLowerCase().includes(nome.toLowerCase()));
-        }
-
-        return filtro;
-    }
     
     criarMotorista(motorista){
         if(!motorista.nome) {
